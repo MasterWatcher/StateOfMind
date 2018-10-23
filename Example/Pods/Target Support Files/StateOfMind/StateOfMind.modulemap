@@ -1,0 +1,6 @@
+framework module StateOfMind {
+  umbrella header "StateOfMind-umbrella.h"
+
+  export *
+  module * { export * }
+}

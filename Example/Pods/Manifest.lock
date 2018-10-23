@@ -1,0 +1,16 @@
+PODS:
+  - StateOfMind (0.1.0)
+
+DEPENDENCIES:
+  - StateOfMind (from `../`)
+
+EXTERNAL SOURCES:
+  StateOfMind:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StateOfMind: c26bd2df7234a79f308b74a8bf472355befde749
+
+PODFILE CHECKSUM: 5c525db6bf4e08e4e2e18f3d03d85a926f9dd0cb
+
+COCOAPODS: 1.5.3
