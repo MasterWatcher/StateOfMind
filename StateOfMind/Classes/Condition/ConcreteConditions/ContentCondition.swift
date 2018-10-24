@@ -10,6 +10,7 @@ open class ContentCondition: Condition {
     public var delayedTransition: DelayedTransition?
 
     private let delay: TimeInterval
+    private var isLoadingCallFirstTime = true
 
     public init(delay: TimeInterval) {
         self.delay = delay
@@ -18,11 +19,14 @@ open class ContentCondition: Condition {
     public func setState<T>(_ state: State<T>, with stateMachine: StateMachine<T>) {
         switch state {
         case .loading:
+            guard !isLoadingCallFirstTime else {
+                processTransitionToLoading(with: stateMachine)
+                return
+            }
+            isLoadingCallFirstTime = false
             delayedTransition?.cancel()
             performDelayedTransition(delay: delay) {
-                stateMachine.displayable.hideContent()
-                stateMachine.displayable.showLoading()
-                stateMachine.condition = stateMachine.loadingCondition
+                self.processTransitionToLoading(with: stateMachine)
             }
         case let .content(value):
             delayedTransition?.cancel()
@@ -41,5 +45,11 @@ open class ContentCondition: Condition {
             stateMachine.displayable.showError(value)
             stateMachine.condition = stateMachine.errorCondition
         }
+    }
+
+    private func processTransitionToLoading<T>(with stateMachine: StateMachine<T>) {
+        stateMachine.displayable.hideContent()
+        stateMachine.displayable.showLoading()
+        stateMachine.condition = stateMachine.loadingCondition
     }
 }

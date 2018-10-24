@@ -38,4 +38,9 @@ public extension Condition {
             callback()
         }
     }
+
+    var delayedTransition: DelayedTransition? {
+        get { return nil }
+        set {}
+    }
 }
