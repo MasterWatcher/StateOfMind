@@ -44,4 +44,3 @@ open class EmptyCondition: Condition {
         }
     }
 }
-

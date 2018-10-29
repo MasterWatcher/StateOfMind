@@ -5,7 +5,7 @@
 //  Created by goncharov on 19/10/2018.
 //
 
-class WeakAnyStateDisplayable<T>: StateDisplayable {
+public class WeakAnyStateDisplayable<T>: StateDisplayable {
 
     private let _showLoading: () -> Void
     private let _hideLoading: () -> Void
@@ -27,35 +27,35 @@ class WeakAnyStateDisplayable<T>: StateDisplayable {
         _hideContent = { [weak statable] in return statable?.hideContent() }
     }
 
-    func showLoading() {
+    public func showLoading() {
         _showLoading()
     }
 
-    func hideLoading() {
+    public func hideLoading() {
         _hideLoading()
     }
 
-    func showEmpty() {
+    public func showEmpty() {
         _showEmpty()
     }
 
-    func hideEmpty() {
+    public func hideEmpty() {
         _hideEmpty()
     }
 
-    func showError(_ error: Error) {
+    public func showError(_ error: Error) {
         _showError(error)
     }
 
-    func hideError() {
+    public func hideError() {
         _hideError()
     }
 
-    func showContent(_ content: T) {
+    public func showContent(_ content: T) {
         _showContent(content)
     }
 
-    func hideContent() {
+    public func hideContent() {
         _hideContent()
     }
 }

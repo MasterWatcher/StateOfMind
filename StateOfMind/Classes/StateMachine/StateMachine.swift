@@ -5,15 +5,15 @@
 //  Created by goncharov on 19/10/2018.
 //
 
-public class StateMachine<T> {
+open class StateMachine<T> {
 
-    let displayable: WeakAnyStateDisplayable<T>
+    public let displayable: WeakAnyStateDisplayable<T>
 
-    var condition: Condition
-    var loadingCondition: Condition
-    var contentCondition: Condition
-    var emptyCondition: Condition
-    var errorCondition: Condition
+    public var condition: Condition
+    public var loadingCondition: Condition
+    public var contentCondition: Condition
+    public var emptyCondition: Condition
+    public var errorCondition: Condition
 
     var currentStatePresentationTime: TimeInterval {
         return Date().timeIntervalSince(stateSetupTime)

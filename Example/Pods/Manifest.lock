@@ -1,5 +1,5 @@
 PODS:
-  - StateOfMind (0.1.0)
+  - StateOfMind (0.1.1)
 
 DEPENDENCIES:
   - StateOfMind (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  StateOfMind: f80746b79161f2e4d271247f5957c4ff751360fa
+  StateOfMind: 50dd1fb9d2ce9ff4e082c573665e318f258f3b40
 
 PODFILE CHECKSUM: 5c525db6bf4e08e4e2e18f3d03d85a926f9dd0cb
 
