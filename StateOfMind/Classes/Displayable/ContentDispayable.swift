@@ -10,4 +10,3 @@ public protocol ContentDispayable {
     func showContent(_: ContentType)
     func hideContent()
 }
-

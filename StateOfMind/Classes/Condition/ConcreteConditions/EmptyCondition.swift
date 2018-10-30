@@ -17,11 +17,11 @@ open class EmptyCondition: Condition {
 
     public func setState<T>(_ state: State<T>, with stateMachine: StateMachine<T>) {
         switch state {
-        case .loading:
+        case let .loading(type):
             delayedTransition?.cancel()
             performDelayedTransition(delay: delay) {
                 stateMachine.displayable.hideEmpty()
-                stateMachine.displayable.showLoading()
+                stateMachine.displayable.showLoading(type)
                 stateMachine.condition = stateMachine.loadingCondition
             }
         case let .content(value):
@@ -30,11 +30,11 @@ open class EmptyCondition: Condition {
             stateMachine.displayable.hideEmpty()
             stateMachine.displayable.showContent(value)
             stateMachine.condition = stateMachine.contentCondition
-        case .empty:
+        case let .empty(type):
             guard let delayedTransition = delayedTransition else { return }
             delayedTransition.cancel()
             stateMachine.displayable.hideEmpty()
-            stateMachine.displayable.showEmpty()
+            stateMachine.displayable.showEmpty(type)
         case let .error(value):
             guard let delayedTransition = delayedTransition else { return }
             delayedTransition.cancel()

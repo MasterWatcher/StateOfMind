@@ -6,7 +6,7 @@
 //
 
 public extension LoadingDisplayable {
-    func showLoading() {}
+    func showLoading(_: String) {}
     func hideLoading() {}
 }
 
@@ -16,7 +16,7 @@ public extension ContentDispayable {
 }
 
 public extension EmptyDisplayable {
-    func showEmpty() {}
+    func showEmpty(_: String) {}
     func hideEmpty() {}
 }
 

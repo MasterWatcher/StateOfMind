@@ -6,7 +6,6 @@
 //
 
 public protocol EmptyDisplayable {
-    func showEmpty()
+    func showEmpty(_: String)
     func hideEmpty()
 }
-

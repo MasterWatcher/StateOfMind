@@ -17,11 +17,11 @@ open class ErrorCondition: Condition {
 
     public func setState<T>(_ state: State<T>, with stateMachine: StateMachine<T>) {
         switch state {
-        case .loading:
+        case let .loading(type):
             delayedTransition?.cancel()
             performDelayedTransition(delay: delay) {
                 stateMachine.displayable.hideError()
-                stateMachine.displayable.showLoading()
+                stateMachine.displayable.showLoading(type)
                 stateMachine.condition = stateMachine.loadingCondition
             }
         case let .content(value):
@@ -30,11 +30,11 @@ open class ErrorCondition: Condition {
             stateMachine.displayable.hideError()
             stateMachine.displayable.showContent(value)
             stateMachine.condition = stateMachine.contentCondition
-        case .empty:
+        case let .empty(type):
             guard let delayedTransition = delayedTransition else { return }
             delayedTransition.cancel()
             stateMachine.displayable.hideError()
-            stateMachine.displayable.showEmpty()
+            stateMachine.displayable.showEmpty(type)
             stateMachine.condition = stateMachine.emptyCondition
         case let .error(value):
             guard let delayedTransition = delayedTransition else { return }
@@ -44,4 +44,3 @@ open class ErrorCondition: Condition {
         }
     }
 }
-

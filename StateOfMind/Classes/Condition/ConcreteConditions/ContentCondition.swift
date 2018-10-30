@@ -1,10 +1,3 @@
-//
-//  ContentCondition.swift
-//  StateOfMind
-//
-//  Created by goncharov on 19/10/2018.
-//
-
 open class ContentCondition: Condition {
 
     public var delayedTransition: DelayedTransition?
@@ -17,22 +10,22 @@ open class ContentCondition: Condition {
 
     public func setState<T>(_ state: State<T>, with stateMachine: StateMachine<T>) {
         switch state {
-        case .loading:
+        case let .loading(type):
             delayedTransition?.cancel()
             performDelayedTransition(delay: delay) {
                 stateMachine.displayable.hideContent()
-                stateMachine.displayable.showLoading()
+                stateMachine.displayable.showLoading(type)
                 stateMachine.condition = stateMachine.loadingCondition
             }
         case let .content(value):
             delayedTransition?.cancel()
             stateMachine.displayable.hideContent()
             stateMachine.displayable.showContent(value)
-        case .empty:
+        case let .empty(type):
             guard let delayedTransition = delayedTransition else { return }
             delayedTransition.cancel()
             stateMachine.displayable.hideContent()
-            stateMachine.displayable.showEmpty()
+            stateMachine.displayable.showEmpty(type)
             stateMachine.condition = stateMachine.emptyCondition
         case let .error(value):
             guard let delayedTransition = delayedTransition else { return }

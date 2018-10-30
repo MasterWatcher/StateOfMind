@@ -7,6 +7,8 @@
 
 open class LoadingCondition: Condition {
 
+    public var delayedTransition: DelayedTransition?
+
     private let minPresentationTime: TimeInterval
 
     public init(minPresentationTime: TimeInterval) {
@@ -22,10 +24,10 @@ open class LoadingCondition: Condition {
                 stateMachine.displayable.showContent(value)
                 stateMachine.condition = stateMachine.contentCondition
             }
-        case .empty:
+        case let .empty(value):
             processTransition(withMinPresentationTime: minPresentationTime, currentStatePresentationTime: stateMachine.currentStatePresentationTime) {
                 stateMachine.displayable.hideLoading()
-                stateMachine.displayable.showEmpty()
+                stateMachine.displayable.showEmpty(value)
                 stateMachine.condition = stateMachine.emptyCondition
             }
         case let .error(value):

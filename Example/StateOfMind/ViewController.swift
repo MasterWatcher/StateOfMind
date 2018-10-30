@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 
 extension ViewController: StateDisplayable {
 
-    func showLoading() {
+    func showLoading(_: String) {
         contentLabel.text = "Loading..."
     }
 
@@ -47,7 +47,7 @@ extension ViewController: StateDisplayable {
         contentLabel.text = content
     }
 
-    func showEmpty() {
+    func showEmpty(_: String) {
         contentLabel.text = "Empty"
     }
 

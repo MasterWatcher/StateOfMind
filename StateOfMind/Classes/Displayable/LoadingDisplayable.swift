@@ -6,7 +6,6 @@
 //
 
 public protocol LoadingDisplayable {
-    func showLoading()
+    func showLoading(_: String)
     func hideLoading()
 }
-

@@ -7,31 +7,44 @@
 
 public extension State {
 
+    static var loading: State {
+        return .loading("")
+    }
+
+    static var empty: State {
+        return .empty("")
+    }
+
+    func setEmpty(_ type: String) -> State {
+        guard case .empty = self else { return self }
+        return .empty(type)
+    }
+
     func map<U>(_ transform: (T) -> U) -> State<U> {
         switch self {
-        case .loading: return State<U>.loading
+        case let .loading(type): return State<U>.loading(type)
         case let .content(value): return State<U>.content(transform(value))
-        case .empty: return State<U>.empty
+        case let .empty(type): return State<U>.empty(type)
         case let .error(value): return State<U>.error(value)
         }
     }
 
     func mapContentToNil<U>() -> State<U>? {
         switch self {
-        case .loading: return State<U>.loading
+        case let .loading(type): return State<U>.loading(type)
         case .content: return nil
-        case .empty: return State<U>.empty
+        case let .empty(type): return State<U>.empty(type)
         case let .error(value): return State<U>.error(value)
         }
     }
 
     func flatMap<U>(none: State<U> = .empty, _ transform: (T) -> U?) -> State<U> {
         switch self {
-        case .loading: return State<U>.loading
+        case let .loading(value): return State<U>.loading(value)
         case let .content(value):
             guard let result = transform(value) else { return none }
             return State<U>.content(result)
-        case .empty: return State<U>.empty
+        case let .empty(value): return State<U>.empty(value)
         case let .error(value): return State<U>.error(value)
         }
     }

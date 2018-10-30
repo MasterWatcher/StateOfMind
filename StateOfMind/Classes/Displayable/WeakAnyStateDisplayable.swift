@@ -7,9 +7,9 @@
 
 public class WeakAnyStateDisplayable<T>: StateDisplayable {
 
-    private let _showLoading: () -> Void
+    private let _showLoading: (String) -> Void
     private let _hideLoading: () -> Void
-    private let _showEmpty: () -> Void
+    private let _showEmpty: (String) -> Void
     private let _hideEmpty: () -> Void
     private let _showError: (Error) -> Void
     private let _hideError: () -> Void
@@ -17,9 +17,9 @@ public class WeakAnyStateDisplayable<T>: StateDisplayable {
     private let _hideContent: () -> Void
 
     init<U: StateDisplayable>(_ statable: U) where U.ContentType == T {
-        _showLoading = { [weak statable] in return statable?.showLoading() }
+        _showLoading = { [weak statable] type in return statable?.showLoading(type) }
         _hideLoading = { [weak statable] in return statable?.hideLoading() }
-        _showEmpty = { [weak statable] in return statable?.showEmpty() }
+        _showEmpty = { [weak statable] type in return statable?.showEmpty(type) }
         _hideEmpty = { [weak statable] in return statable?.hideEmpty() }
         _showError = { [weak statable] error in return statable?.showError(error) }
         _hideError = { [weak statable] in return statable?.hideError() }
@@ -27,16 +27,16 @@ public class WeakAnyStateDisplayable<T>: StateDisplayable {
         _hideContent = { [weak statable] in return statable?.hideContent() }
     }
 
-    public func showLoading() {
-        _showLoading()
+    public func showLoading(_ type: String) {
+        _showLoading(type)
     }
 
     public func hideLoading() {
         _hideLoading()
     }
 
-    public func showEmpty() {
-        _showEmpty()
+    public func showEmpty(_ type: String) {
+        _showEmpty(type)
     }
 
     public func hideEmpty() {

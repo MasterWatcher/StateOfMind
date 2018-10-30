@@ -1,6 +1,6 @@
 {
   "name": "StateOfMind",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "State Framework in Swift",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/MasterWatcher/StateOfMind",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/MasterWatcher/StateOfMind.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "8.0"
