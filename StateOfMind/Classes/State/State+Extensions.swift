@@ -15,9 +15,27 @@ public extension State {
         return .empty("")
     }
 
-    func setEmpty(_ type: String) -> State {
-        guard case .empty = self else { return self }
-        return .empty(type)
+    func set(loading: String? = nil, content: T? = nil, empty: String? = nil, error: Error? = nil) -> State {
+        switch (self, loading, content, empty, error) {
+        case (.loading, let .some(type), _, _, _): return .loading(type)
+        case (.content, _, let .some(value), _, _): return .content(value)
+        case (.empty, _, _,let .some(type), _): return .empty(type)
+        case (.error, _, _, _, let .some(value)): return .error(value)
+        default: return self
+        }
+    }
+
+    @discardableResult func `do`(onLoading: ((String) -> Void)? = nil,
+                                 onContent: ((T) -> Void)? = nil,
+                                 onEmpty: ((String) -> Void)? = nil,
+                                 onError: ((Error) -> Void)? = nil) -> State<T> {
+        switch self {
+        case let .loading(type): onLoading?(type)
+        case let .content(value): onContent?(value)
+        case let .empty(type): onEmpty?(type)
+        case let .error(value): onError?(value)
+        }
+        return self
     }
 
     func map<U>(_ transform: (T) -> U) -> State<U> {
