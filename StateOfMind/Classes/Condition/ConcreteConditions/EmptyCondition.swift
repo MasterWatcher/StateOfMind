@@ -25,19 +25,16 @@ open class EmptyCondition: Condition {
                 stateMachine.condition = stateMachine.loadingCondition
             }
         case let .content(value):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideEmpty()
             stateMachine.displayable.showContent(value)
             stateMachine.condition = stateMachine.contentCondition
         case let .empty(type):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideEmpty()
             stateMachine.displayable.showEmpty(type)
         case let .error(value):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideEmpty()
             stateMachine.displayable.showError(value)
             stateMachine.condition = stateMachine.errorCondition

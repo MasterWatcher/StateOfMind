@@ -22,14 +22,12 @@ open class ContentCondition: Condition {
             stateMachine.displayable.hideContent()
             stateMachine.displayable.showContent(value)
         case let .empty(type):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideContent()
             stateMachine.displayable.showEmpty(type)
             stateMachine.condition = stateMachine.emptyCondition
         case let .error(value):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideContent()
             stateMachine.displayable.showError(value)
             stateMachine.condition = stateMachine.errorCondition

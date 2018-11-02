@@ -25,20 +25,17 @@ open class ErrorCondition: Condition {
                 stateMachine.condition = stateMachine.loadingCondition
             }
         case let .content(value):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideError()
             stateMachine.displayable.showContent(value)
             stateMachine.condition = stateMachine.contentCondition
         case let .empty(type):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideError()
             stateMachine.displayable.showEmpty(type)
             stateMachine.condition = stateMachine.emptyCondition
         case let .error(value):
-            guard let delayedTransition = delayedTransition else { return }
-            delayedTransition.cancel()
+            delayedTransition?.cancel()
             stateMachine.displayable.hideError()
             stateMachine.displayable.showError(value)
         }
