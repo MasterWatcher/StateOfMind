@@ -1,6 +1,7 @@
 # StateOfMind
 
-[![CI Status](https://img.shields.io/travis/MasterWatcher/StateOfMind.svg?style=flat)](https://travis-ci.org/MasterWatcher/StateOfMind)
+StateOfMind is a state-based approach of managing your view. It let you make transitions between different states of a view just by updating one enum.
+
 [![Version](https://img.shields.io/cocoapods/v/StateOfMind.svg?style=flat)](https://cocoapods.org/pods/StateOfMind)
 [![License](https://img.shields.io/cocoapods/l/StateOfMind.svg?style=flat)](https://cocoapods.org/pods/StateOfMind)
 [![Platform](https://img.shields.io/cocoapods/p/StateOfMind.svg?style=flat)](https://cocoapods.org/pods/StateOfMind)
