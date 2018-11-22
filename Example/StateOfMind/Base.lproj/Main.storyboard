@@ -21,50 +21,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="J0m-nT-zli">
-                                <rect key="frame" x="16" y="36" width="343" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1r-Ry-gdh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HN1-ma-IB6">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.5" height="30"/>
-                                        <state key="normal" title="Load Content"/>
-                                        <connections>
-                                            <action selector="loadContentPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t0s-Vg-cHs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-hB-Hhd">
-                                        <rect key="frame" x="131.5" y="0.0" width="106" height="30"/>
-                                        <state key="normal" title="Load Empty"/>
-                                        <connections>
-                                            <action selector="loadEmptyPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hJQ-PY-KlO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvO-NE-XJc">
-                                        <rect key="frame" x="248.5" y="0.0" width="94.5" height="30"/>
-                                        <state key="normal" title="LoadError"/>
-                                        <connections>
-                                            <action selector="loadErrorPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vCq-9K-5YV"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GMe-Yz-3KH">
+                                        <rect key="frame" x="16" y="32" width="343" height="90.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="J0m-nT-zli">
+                                                <rect key="frame" x="21" y="0.0" width="301" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HN1-ma-IB6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="93" height="30"/>
+                                                        <state key="normal" title="Load Content"/>
+                                                        <connections>
+                                                            <action selector="loadContentPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t0s-Vg-cHs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-hB-Hhd">
+                                                        <rect key="frame" x="104" y="0.0" width="93" height="30"/>
+                                                        <state key="normal" title="Load Empty"/>
+                                                        <connections>
+                                                            <action selector="loadEmptyPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hJQ-PY-KlO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvO-NE-XJc">
+                                                        <rect key="frame" x="208" y="0.0" width="93" height="30"/>
+                                                        <state key="normal" title="Load Error"/>
+                                                        <connections>
+                                                            <action selector="loadErrorPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vCq-9K-5YV"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d5V-kk-3Kh">
+                                                <rect key="frame" x="0.0" y="40" width="343" height="50.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jce-Z9-mlL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="W4R-uC-ATh">
+                                                        <rect key="frame" x="-2" y="20.5" width="347" height="31"/>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="d5V-kk-3Kh" secondAttribute="trailing" id="g1B-am-3vw"/>
+                                            <constraint firstItem="d5V-kk-3Kh" firstAttribute="leading" secondItem="GMe-Yz-3KH" secondAttribute="leading" id="iN4-re-e8z"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YES-CW-UsP">
-                                <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.90225123602726742" green="0.90225123602726742" blue="0.90225123602726742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GMe-Yz-3KH" secondAttribute="trailing" constant="16" id="5eK-vB-lZK"/>
+                                    <constraint firstItem="GMe-Yz-3KH" firstAttribute="top" secondItem="x1r-Ry-gdh" secondAttribute="top" constant="32" id="OIm-YK-YPB"/>
+                                    <constraint firstAttribute="bottom" secondItem="GMe-Yz-3KH" secondAttribute="bottom" constant="8" id="OYp-ft-ULY"/>
+                                    <constraint firstItem="GMe-Yz-3KH" firstAttribute="leading" secondItem="x1r-Ry-gdh" secondAttribute="leading" constant="16" id="Om4-xH-nR9"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nyw-AR-QMk">
+                                <rect key="frame" x="0.0" y="130.5" width="375" height="536.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="F2f-IV-2QG"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="J0m-nT-zli" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="2wJ-Ej-BMc"/>
-                            <constraint firstItem="YES-CW-UsP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Arb-U4-b9B"/>
-                            <constraint firstItem="J0m-nT-zli" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="VND-Yz-Nj8"/>
-                            <constraint firstAttribute="trailing" secondItem="J0m-nT-zli" secondAttribute="trailing" constant="16" id="cp4-Vh-mNz"/>
-                            <constraint firstItem="YES-CW-UsP" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="qoA-ej-I0s"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Nyw-AR-QMk" secondAttribute="bottom" id="6Ru-jg-Nnl"/>
+                            <constraint firstItem="x1r-Ry-gdh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="9b2-Gq-NSD"/>
+                            <constraint firstItem="Nyw-AR-QMk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Kph-WZ-hPm"/>
+                            <constraint firstAttribute="trailing" secondItem="x1r-Ry-gdh" secondAttribute="trailing" id="YUm-jE-hyV"/>
+                            <constraint firstItem="x1r-Ry-gdh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="cL1-6t-2qm"/>
+                            <constraint firstAttribute="trailing" secondItem="Nyw-AR-QMk" secondAttribute="trailing" id="jih-S7-vs4"/>
+                            <constraint firstItem="Nyw-AR-QMk" firstAttribute="top" secondItem="x1r-Ry-gdh" secondAttribute="bottom" id="mN5-j2-pfb"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentLabel" destination="YES-CW-UsP" id="qjq-eh-mlP"/>
+                        <outlet property="delayLabel" destination="Jce-Z9-mlL" id="Y1I-Jz-cBK"/>
+                        <outlet property="delaySlider" destination="W4R-uC-ATh" id="OAq-RQ-aeM"/>
+                        <outlet property="tableView" destination="Nyw-AR-QMk" id="UYw-fB-NR3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

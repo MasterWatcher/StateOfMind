@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A3519AE21A71FD7001A28D1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3519AD21A71FD7001A28D1 /* MenuItem.swift */; };
+		3A3519B121A72068001A28D1 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3519B021A72068001A28D1 /* MenuService.swift */; };
 		5D7F9A13A4E3855039DF9079 /* Pods_StateOfMind_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8166CC769110A714303AF0E9 /* Pods_StateOfMind_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		18A8F223D6F158E91BF5B9CA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1FE00839C0D4DBD7E0F9F09E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3A3519AD21A71FD7001A28D1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		3A3519B021A72068001A28D1 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuService.swift; path = /Users/Anton/Desktop/StateOfMind/StateOfMind/Example/StateOfMind/MenuService.swift; sourceTree = "<absolute>"; };
 		48A86FC87782A2D7459A6E3A /* Pods-StateOfMind_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StateOfMind_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-StateOfMind_Example/Pods-StateOfMind_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4E05F43A54A2C4FA79FA21F7 /* StateOfMind.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = StateOfMind.podspec; path = ../StateOfMind.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* StateOfMind_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateOfMind_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				3A3519B021A72068001A28D1 /* MenuService.swift */,
+				3A3519AD21A71FD7001A28D1 /* MenuItem.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -305,7 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3519AE21A71FD7001A28D1 /* MenuItem.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				3A3519B121A72068001A28D1 /* MenuService.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
