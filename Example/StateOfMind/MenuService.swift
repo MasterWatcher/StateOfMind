@@ -9,7 +9,7 @@ import Foundation
 
 class MenuService {
     
-    var delay = 2.0
+    var delay = 1.0
     var resultType: ResultType = .content
     
     private static let content = [

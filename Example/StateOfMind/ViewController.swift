@@ -11,7 +11,11 @@ import StateOfMind
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var delayLabel: UILabel!
     @IBOutlet weak var delaySlider: UISlider!
     
@@ -73,7 +77,11 @@ class ViewController: UIViewController {
 extension ViewController: StateDisplayable {
 
     func showLoading(_: String) {
-       
+        loadingView.isHidden = false
+    }
+    
+    func hideLoading() {
+        loadingView.isHidden = true
     }
 
     func showContent(_ menuItems: [MenuItem]) {
@@ -82,11 +90,19 @@ extension ViewController: StateDisplayable {
     }
 
     func showEmpty(_: String) {
-       
+       emptyView.isHidden = false
+    }
+    
+    func hideEmpty() {
+        emptyView.isHidden = true
     }
 
     func showError(_ error: Error) {
-        
+        errorView.isHidden = false
+    }
+    
+    func  hideError() {
+        errorView.isHidden = true
     }
 }
 
